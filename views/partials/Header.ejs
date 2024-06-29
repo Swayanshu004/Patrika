@@ -1,0 +1,55 @@
+<header class="flex items-center justify-between h-20 px-4 bg-[#14213d] text-[#e5e5e5] md:px-6">
+  <nav class="hidden md:flex items-center gap-6">
+    <a class="flex items-center gap-2" href="/">
+      <h1 class="font-bold text-3xl text-[#fca311]">पत्रिका</h1>
+    </a>
+    <% if(locals.user) { %>
+    <a href="/blog/addblog"
+    class="text-base font-medium px-2 py-1 rounded-md hover:bg-[#fca311] hover:text-[#14213d]" >
+      Add Your Blog
+    </a>
+    <% } %>
+    <a class="text-base font-medium px-2 py-1 rounded-md hover:bg-[#fca311] hover:text-[#14213d]" href="#">
+      About
+    </a>
+  </nav>
+  <div class="flex items-center gap-4">
+    <% if(locals.user) { %>
+    <form class="relative">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="absolute left-2.5 top-2.5 h-4 w-4 text-[#14213d]"
+      >
+        <circle cx="11" cy="11" r="8"></circle>
+        <path d="m21 21-4.3-4.3"></path>
+      </svg>
+      <input
+        class="flex h-10 w-full border border-input px-3 text-lg pl-8 pr-4 py-2 rounded-md text-[#14213d] placeholder-[#14213d] bg-[#FFFFFF] focus:ring-[#fca311]"
+        placeholder="Search..."
+        type="search"
+      />
+    </form>
+    <button>
+    <a href="/profile"
+    class="flex items-center justify-center whitespace-nowrap text-sm font-medium h-9 w-9 rounded-full">
+      <img src="https://e7.pngegg.com/pngimages/550/997/png-clipart-user-icon-foreigners-avatar-child-face.png" alt="NA" class="w-10 h-10 rounded-full border-2">
+    </a>
+    </button>
+    <% } else { %>
+      <a class="text-base font-medium px-2 py-1 rounded-md hover:bg-[#fca311] hover:text-[#14213d]" href="/user/signup">
+        CREATE ACCOUNT
+      </a>
+      <a class="text-base font-medium px-2 py-1 rounded-md hover:bg-[#fca311] hover:text-[#14213d]" href="/user/signin">
+        SIGNIN
+      </a>
+    <% } %>
+  </div>
+</header>

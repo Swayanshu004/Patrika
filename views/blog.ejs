@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head')%>
+    <title>BLOG</title>
+</head>
+<body>
+    <%- include("./partials/header")%>
+    <div class="py-3">
+        <article class="prose prose-gray mx-auto dark:prose-invert flex flex-col items-center justify-center">
+            <div class="px-10 py-5 w-full flex flex-col items-center justify-center">
+              <h1 class=" text-4xl font-extrabold lg:text-5xl lg:leading-[3.5rem]">
+                <%= blog.title%>
+              </h1>
+              <p class="text-sm my-2"><%= blog.createdAt%></p>
+            </div>
+            <figure>
+                <img 
+                src="<%= blog.coverImageURL%>" 
+                alt="NA" 
+                class="aspect-video object-cover h-96 rounded-3xl" />
+            </figure>
+            <p class="text-lg my-6 w-1/2">
+            <%= blog.content%>
+            </p>
+            <div class="w-1/2 flex items-center justify-end">
+                <span class="overflow-hidden rounded-full mr-3">
+                    <img 
+                    src="<%= blog.createdBy.profileUrl%>"
+                    alt="NA" 
+                    class="aspect-square w-12" />
+                </span>
+                <span class="font-semibold text-lg"><%= blog.createdBy.fullname%></span>
+            </div>
+            <% if(locals.user) { %>
+            <div class="flex items-center gap-10 my-6">
+                <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-md font-medium ring-offset-background transition-colors disabled:pointer-events-none disabled:opacity-50 h-10 w-10 border-2 border-[#dd1c1a] text-[#14213d] hover:bg-[#dd1c1a] hover:text-[#e5e5e5]">
+                    <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="h-5 w-5"
+                    >
+                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+                    </svg>
+                    <span class="sr-only">Like</span>
+                </button>
+                <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-md font-medium ring-offset-background transition-colors disabled:pointer-events-none disabled:opacity-50 h-10 w-10 border-2 border-[#1282a2] text-[#14213d] hover:bg-[#1282a2] hover:text-[#e5e5e5]">
+                    <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="h-5 w-5"
+                    >
+                    <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+                    <polyline points="16 6 12 2 8 6"></polyline>
+                    <line x1="12" x2="12" y1="2" y2="15"></line>
+                    </svg>
+                    <span class="sr-only">Share</span>
+                </button>
+                <div class="flex items-center justify-center">
+                    <form action="/blog/comment/<%= blog._id%>" method="post">
+                        <input type="text" name="content" class="h-10 border-2 pl-4" placeholder="Enter Your Comment . . .">
+                        <button 
+                        type="submit"
+                        class="inline-flex items-center justify-center rounded-md text-md font-medium ring-offset-background h-10 w-10 border-2 border-[#a5be00] text-[#14213d] hover:bg-[#a5be00] hover:text-[#e5e5e5]">Add</button>
+                    </form>
+                </div>
+            </div>
+            <% } %>
+            <div class="w-1/2 mt-2">
+                <% comments.forEach(comment => { %>
+                    <div class="flex items-center py-2 px-4">
+                        <img 
+                        src="<%= comment.createdBy.profileUrl %>" 
+                        alt="NA"
+                        class="w-16 rounded-3xl">
+                        <p class=" ml-4"><%= comment.content %></p>
+                    </div>
+                <% }) %>
+            </div>
+        </article>
+      </div>
+</body>
+</html>

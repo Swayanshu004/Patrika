@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head')%>
+    <title>Signup</title>
+</head>
+<body>
+    <a class="absolute p-6" href="/">
+      <h1 class="font-bold text-3xl text-[#fca311]">पत्रिका</h1>
+    </a>
+    <div class="flex items-center justify-center h-svh bg-gradient-to-b from-[#14213d] to-[#e5e5e5]">
+      <div class="bg-[#FFFFFF] rounded-lg shadow-lg p-8 w-full max-w-md">
+        <h1 class="font-bold text-3xl text-[#fca311]">SIGNUP</h1>
+        <form class="space-y-4 mt-4" action="/user/signup" method="post">
+          <div>
+            <input
+              name="fullname"
+              type="text"
+              class="w-full px-4 py-2 rounded-md bg-[#e5e5e5] focus:outline-none focus:ring-2 focus:ring-[#fca311]"
+              placeholder="fullname"
+            />
+          </div>
+          <div>
+            <input
+              name="email"
+              class="w-full px-4 py-2 rounded-md bg-[#e5e5e5] focus:outline-none focus:ring-2 focus:ring-[#fca311]"
+              type="email"
+              placeholder="email"
+            />
+          </div>
+          <div>
+            <input
+              name="password"
+              type="password"
+              class="w-full px-4 py-2 rounded-md bg-[#e5e5e5] focus:outline-none focus:ring-2 focus:ring-[#fca311]"
+              placeholder="password"
+            />
+          </div>
+          <button type="submit" class="bg-[#fca311] font-bold px-10 py-2 rounded-md text-white hover:bg-[#feb135]">SIGNUP</button>
+        </form>
+      </div>
+    </div>
+</body>
+</html>

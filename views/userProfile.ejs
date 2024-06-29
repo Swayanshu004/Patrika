@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>userProfile</title>
+</head>
+<body>
+    <div class="bg-[#e5e5e5] min-h-screen flex items-center justify-center">
+        <div class="bg-white rounded-2xl shadow-lg w-full max-w-md overflow-hidden">
+          <div class="bg-[#14213d] h-32 relative">
+            <div class="absolute -bottom-16 left-1/2 -translate-x-1/2">
+              <span class="relative flex shrink-0 overflow-hidden rounded-full w-32 h-32 border-4 border-white">
+                <img class="aspect-square h-full w-full" alt="User Avatar" src="/placeholder-user.jpg" />
+              </span>
+            </div>
+          </div>
+          <div class="pt-20 pb-6 px-6">
+            <h2 class="text-4xl font-bold text-[#14213d]">John Doe</h2>
+            <div class="flex items-center justify-between mt-6">
+                <div>
+                    <p class="text-[#000000] text-xl">Software Engineer</p>
+                    <p class="text-[#000000] text-sm mt-2">johndoe@example.com</p>
+                </div>
+                <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input hover:text-accent-foreground h-10 px-4 py-2 bg-[#fca311] text-white hover:bg-[#e5a010] focus:ring-[#fca311]">
+                    Edit
+                </button>
+            </div>
+            <div class="flex items-center justify-center mt-6">
+                <button>
+                  <a href="/user/logout"
+                  class="py-2 px-6 bg-[#d62828] rounded-xl font-semibold text-white hover:bg-[#ad1f1f]">Logout</a> 
+                </button>
+            </div>
+          </div>
+        </div>
+      </div>
+</body>
+</html>

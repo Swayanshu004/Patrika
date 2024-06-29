@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head')%>
+    <title>Signin</title>
+</head>
+<body>
+    <a class="absolute p-6" href="/">
+      <h1 class="font-bold text-3xl text-[#fca311]">पत्रिका</h1>
+    </a>
+    <div class="h-screen flex items-center justify-center bg-gradient-to-b from-[#14213d] to-[#e5e5e5]">
+      <div class="bg-[#FFFFFF] rounded-lg shadow-lg p-8 w-full max-w-md">
+        <h1 class="font-bold text-3xl text-[#fca311]">SIGNIN</h1>
+        <form class="space-y-4 mt-4" action="/user/signin" method="post">
+          <div>
+            <input
+              name="email"
+              class="w-full px-4 py-2 rounded-md bg-[#e5e5e5] focus:outline-none focus:ring-2 focus:ring-[#fca311]"
+              type="email"
+              placeholder="email"
+            />
+          </div>
+          <div>
+            <input
+              name="password"
+              type="password"
+              class="w-full px-4 py-2 rounded-md bg-[#e5e5e5] focus:outline-none focus:ring-2 focus:ring-[#fca311]"
+              placeholder="password"
+            />
+          </div>
+          <button type="submit" class="bg-[#fca311] font-bold px-10 py-2 rounded-md text-white hover:bg-[#feb135]">SIGNIN</button>
+        </form>
+      </div>
+    </div>
+    <%if(locals.error) { %>
+      <div class="absolute bottom-0 w-full isolate flex items-center justify-center py-4 bg-[#ff0000] ">
+        <p class="text-white text-xl font-semibold">WARNING - <%= locals.error%></p>
+      </div>
+    <% } %>
+</body>
+</html>
